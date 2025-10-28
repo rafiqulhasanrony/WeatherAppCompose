@@ -56,14 +56,14 @@ gradlePlugin {
 //            id = libs.plugins.nowinandroid.android.application.jacoco.get().pluginId
 //            implementationClass = "AndroidApplicationJacocoConventionPlugin"
 //        }
-//        register("androidLibraryCompose") {
-//            id = libs.plugins.nowinandroid.android.library.compose.get().pluginId
-//            implementationClass = "AndroidLibraryComposeConventionPlugin"
-//        }
-//        register("androidLibrary") {
-//            id = libs.plugins.nowinandroid.android.library.asProvider().get().pluginId
-//            implementationClass = "AndroidLibraryConventionPlugin"
-//        }
+        register("androidLibraryCompose") {
+            id = libs.plugins.weatherapp.android.library.compose.get().pluginId
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
+        register("androidLibrary") {
+            id = libs.plugins.weatherapp.android.library.asProvider().get().pluginId
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
 //        register("androidFeature") {
 //            id = libs.plugins.nowinandroid.android.feature.get().pluginId
 //            implementationClass = "AndroidFeatureConventionPlugin"

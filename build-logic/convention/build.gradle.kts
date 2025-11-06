@@ -24,11 +24,12 @@ dependencies {
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.android.tools.common)
     compileOnly(libs.compose.gradlePlugin)
+    compileOnly(libs.ksp.gradlePlugin)
+
     implementation(libs.truth)
+
 //    compileOnly(libs.firebase.crashlytics.gradlePlugin)
 //    compileOnly(libs.firebase.performance.gradlePlugin)
-//    compileOnly(libs.kotlin.gradlePlugin)
-//    compileOnly(libs.ksp.gradlePlugin)
 //    compileOnly(libs.room.gradlePlugin)
 //    implementation(libs.truth)
 //    lintChecks(libs.androidx.lint.gradle)
@@ -76,10 +77,10 @@ gradlePlugin {
 //            id = libs.plugins.nowinandroid.android.test.get().pluginId
 //            implementationClass = "AndroidTestConventionPlugin"
 //        }
-//        register("hilt") {
-//            id = libs.plugins.nowinandroid.hilt.get().pluginId
-//            implementationClass = "HiltConventionPlugin"
-//        }
+        register("hilt") {
+            id = libs.plugins.weatherapp.hilt.get().pluginId
+            implementationClass = "HiltConventionPlugin"
+        }
 //        register("androidRoom") {
 //            id = libs.plugins.nowinandroid.android.room.get().pluginId
 //            implementationClass = "AndroidRoomConventionPlugin"

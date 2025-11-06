@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.weatherapp.android.application.compose)
     alias(libs.plugins.weatherapp.android.application)
+    alias(libs.plugins.weatherapp.hilt)
 }
 
 android {
@@ -31,6 +32,10 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+
+    //hilt
+    implementation(libs.androidx.hilt.navigation.compose)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

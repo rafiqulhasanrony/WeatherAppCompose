@@ -65,10 +65,10 @@ gradlePlugin {
             id = libs.plugins.weatherapp.android.library.asProvider().get().pluginId
             implementationClass = "AndroidLibraryConventionPlugin"
         }
-//        register("androidFeature") {
-//            id = libs.plugins.nowinandroid.android.feature.get().pluginId
-//            implementationClass = "AndroidFeatureConventionPlugin"
-//        }
+        register("androidFeature") {
+            id = libs.plugins.weatherapp.android.feature.get().pluginId
+            implementationClass = "AndroidFeatureConventionPlugin"
+        }
 //        register("androidLibraryJacoco") {
 //            id = libs.plugins.nowinandroid.android.library.jacoco.get().pluginId
 //            implementationClass = "AndroidLibraryJacocoConventionPlugin"

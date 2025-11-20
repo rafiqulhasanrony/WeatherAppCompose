@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.weatherapp.android.application.compose)
     alias(libs.plugins.weatherapp.android.application)
     alias(libs.plugins.weatherapp.hilt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -33,9 +34,11 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.navigation.compose)
 
     //hilt
     implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.hilt.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

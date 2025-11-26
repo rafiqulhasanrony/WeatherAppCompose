@@ -24,6 +24,10 @@ android {
 
 dependencies {
     implementation(projects.core.designsystem)
+    implementation(projects.core.ui)
+    
+    implementation(projects.feature.weatherinfo)
+    implementation(projects.feature.settings)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)

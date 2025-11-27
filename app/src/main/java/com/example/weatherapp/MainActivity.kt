@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.example.weatherapp.core.designsystem.component.AppBackground
 import com.example.weatherapp.core.designsystem.theme.AppTheme
 import com.example.weatherapp.navigation.WeatherAppNavHost
 
@@ -22,7 +23,9 @@ class MainActivity : ComponentActivity() {
        //splashScreen.setKeepOnScreenCondition { false }
         setContent {
             AppTheme {
-                WeatherAppNavHost(modifier = Modifier.fillMaxSize())
+                AppBackground {
+                    WeatherAppNavHost(modifier = Modifier.fillMaxSize())
+                }
             }
         }
     }

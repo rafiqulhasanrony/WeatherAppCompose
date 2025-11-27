@@ -174,18 +174,18 @@ val unspecified_scheme = ColorFamily(
 
 @Composable
 fun AppTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    isDarkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = false,
+    isDynamicTheme: Boolean = false,
     content: @Composable() () -> Unit
 ) {
     val colorScheme = when {
-        dynamicColor && supportsDynamicTheming() -> {
+        isDynamicTheme && supportsDynamicTheming() -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            if (isDarkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> darkColorScheme
+        isDarkTheme -> darkColorScheme
         else -> lightColorScheme
     }
 
@@ -197,7 +197,7 @@ fun AppTheme(
         container = colorScheme.surface,
     )
     val gradientColors = when {
-        dynamicColor && supportsDynamicTheming() -> emptyGradientColors
+        isDynamicTheme && supportsDynamicTheming() -> emptyGradientColors
         else -> defaultGradientColors
     }
     // Background theme
@@ -209,7 +209,7 @@ fun AppTheme(
         else -> defaultBackgroundTheme
     }
     val tintTheme = when {
-        dynamicColor && supportsDynamicTheming() -> TintTheme(
+        isDynamicTheme && supportsDynamicTheming() -> TintTheme(
             colorScheme.primary
         )
 

@@ -18,7 +18,6 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             extensions.configure<ApplicationExtension> {
                 configureKotlinAndroid(this)
                 namespace = NAME_SPACE
-                @Suppress("UnstableApiUsage")
                 testOptions.animationsDisabled = true
                 defaultConfig.targetSdk = TARGET_SDK_VERSION
                 defaultConfig.applicationId = APPLICATION_ID

@@ -1,29 +1,29 @@
 [versions]
-agp = "8.13.0"
+agp = "9.0.0"
 androidDesugarJdkLibs = "2.1.5"
-androidGradlePlugin = "8.13.0"
-androidTools = "31.13.0"
-kotlin = "2.2.21"
+androidGradlePlugin = "9.0.0"
+androidTools = "32.0.0"
+kotlin = "2.3.0"
 kotlinxCoroutines = "1.10.2"
-kotlinxSerializationJson = "1.9.0"
+kotlinxSerializationJson = "1.10.0"
 coreKtx = "1.17.0"
 androidxCoreSplashscreen = "1.2.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
-lifecycleRuntimeKtx = "2.9.4"
-activityCompose = "1.11.0"
-composeBom = "2025.11.00"
-androidxComposeFoundation = "1.9.4"
+lifecycleRuntimeKtx = "2.10.0"
+activityCompose = "1.12.2"
+composeBom = "2026.01.00"
+androidxComposeFoundation = "1.10.1"
 androidxComposeMaterial3Adaptive = "1.2.0"
 androidxNavigation = "2.9.6"
 truth = "1.4.5"
 appcompat = "1.7.1"
 material = "1.13.0"
-hilt = "2.57.2"
+hilt = "2.59"
 hiltExt = "1.3.0"
 androidxHiltNavigationCompose = "1.3.0"
-ksp = "2.3.2"
+ksp = "2.3.4"
 appcompatVersion = "1.7.1"
 materialVersion = "1.13.0"
 androidxLifecycle = "2.10.0"
@@ -57,6 +57,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-ui-testManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+kotlin-metadata = { module = "org.jetbrains.kotlin:kotlin-metadata-jvm", version.ref = "kotlin" }
 truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }

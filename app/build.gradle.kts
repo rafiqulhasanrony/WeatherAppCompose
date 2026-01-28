@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.weatherapp.android.application.compose)
     alias(libs.plugins.weatherapp.android.application)
+    alias(libs.plugins.weatherapp.android.application.compose)
     alias(libs.plugins.weatherapp.hilt)
     alias(libs.plugins.kotlin.serialization)
 }

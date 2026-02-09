@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         // Keep the splash screen on-screen until the UI state is loaded. This condition is
         // evaluated each time the app needs to be redrawn so it should be fast to avoid blocking
         // the UI.
-       //splashScreen.setKeepOnScreenCondition { false }
+        // splashScreen.setKeepOnScreenCondition { false }
         setContent {
             AppTheme {
                 AppBackground {

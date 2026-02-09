@@ -21,7 +21,7 @@ import org.gradle.api.Project
 class RootPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         require(target.path == ":")
-        //target.subprojects { configureGraphTasks() }
+        // target.subprojects { configureGraphTasks() }
         target.configureSpotlessForRootProject()
     }
 }

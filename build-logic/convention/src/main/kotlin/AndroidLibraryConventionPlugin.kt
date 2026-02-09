@@ -16,6 +16,7 @@
 
 import com.android.build.api.dsl.LibraryExtension
 import com.example.weatherapp.configureKotlinAndroid
+import com.example.weatherapp.configureSpotlessForAndroid
 import com.example.weatherapp.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -40,7 +41,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                     path.split("""\W""".toRegex()).drop(1).distinct().joinToString(separator = "_")
                         .lowercase() + "_"
             }
-
+            configureSpotlessForAndroid()
             dependencies {
                 "androidTestImplementation"(libs.findLibrary("kotlin.test").get())
                 "testImplementation"(libs.findLibrary("kotlin.test").get())

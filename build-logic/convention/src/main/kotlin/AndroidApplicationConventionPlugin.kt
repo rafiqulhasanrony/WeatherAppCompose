@@ -1,6 +1,7 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.example.weatherapp.constant.ProjectConfig.TARGET_SDK_VERSION
 import com.example.weatherapp.configureKotlinAndroid
+import com.example.weatherapp.configureSpotlessForAndroid
 import com.example.weatherapp.constant.ProjectConfig.APPLICATION_ID
 import com.example.weatherapp.constant.ProjectConfig.NAME_SPACE
 import com.example.weatherapp.constant.ProjectConfig.VERSION_CODE
@@ -24,6 +25,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 defaultConfig.versionCode = VERSION_CODE
                 defaultConfig.versionName = VERSION_NAME
             }
+            configureSpotlessForAndroid()
         }
     }
 }

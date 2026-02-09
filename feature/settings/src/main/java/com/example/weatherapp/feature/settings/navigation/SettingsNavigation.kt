@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data object SettingsRoute
 
-fun NavController.navigateToSetting(){
+fun NavController.navigateToSetting() {
     navigate(SettingsRoute)
 }
 
@@ -17,5 +17,4 @@ fun NavGraphBuilder.settingsScreen(onBackPress: () -> Unit) {
     composable<SettingsRoute> {
         SettingsRoute(onBackPress)
     }
-
 }

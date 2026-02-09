@@ -22,14 +22,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.weatherapp.core.designsystem.theme.AppTheme
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppStandardToolbar(
     title: String,
     onBackClick: (() -> Unit)? = null, // Nullable: if null, don't show back arrow
     actions: @Composable RowScope.() -> Unit = {},
-    scrollBehavior: TopAppBarScrollBehavior? = null
+    scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
     CenterAlignedTopAppBar(
         title = { Text(text = title, style = MaterialTheme.typography.titleMedium) },
@@ -38,7 +37,7 @@ fun AppStandardToolbar(
                 IconButton(onClick = onBackClick) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back"
+                        contentDescription = "Back",
                     )
                 }
             }
@@ -68,8 +67,7 @@ fun AppStandardToolbarWithNavigationBackPreview() {
         AppStandardToolbar(
             title = "Weather Info",
             onBackClick = {
-
-            }
+            },
         )
     }
 }
@@ -81,7 +79,7 @@ fun AppSearchToolbar(
     query: String,
     onQueryChange: (String) -> Unit,
     onBackClick: () -> Unit,
-    onClearClick: () -> Unit
+    onClearClick: () -> Unit,
 ) {
     TopAppBar(
         title = {
@@ -93,9 +91,9 @@ fun AppSearchToolbar(
                     focusedContainerColor = Color.Transparent,
                     unfocusedContainerColor = Color.Transparent,
                     focusedIndicatorColor = Color.Transparent,
-                    unfocusedIndicatorColor = Color.Transparent
+                    unfocusedIndicatorColor = Color.Transparent,
                 ),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             )
         },
         navigationIcon = {
@@ -109,7 +107,7 @@ fun AppSearchToolbar(
                     Icon(Icons.Filled.Clear, "Clear")
                 }
             }
-        }
+        },
     )
 }
 
@@ -122,7 +120,7 @@ fun AppSearchToolbarPreview() {
             query = "",
             onQueryChange = {},
             onBackClick = {},
-            onClearClick = {}
+            onClearClick = {},
 
         )
     }
@@ -137,7 +135,7 @@ fun AppSearchToolbarWithQueryPreview() {
             query = "Berlin",
             onQueryChange = {},
             onBackClick = {},
-            onClearClick = {}
+            onClearClick = {},
 
         )
     }

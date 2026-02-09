@@ -12,14 +12,14 @@ import androidx.compose.ui.graphics.Color
 import com.example.weatherapp.core.ui.AppStandardToolbar
 
 @Composable
-internal fun SettingsRoute(onBackPress:()-> Unit){
+internal fun SettingsRoute(onBackPress: () -> Unit) {
     SettingsScreen(onBackPress)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SettingsScreen(
-    onBackPress:()-> Unit
+    onBackPress: () -> Unit,
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -28,21 +28,21 @@ internal fun SettingsScreen(
         topBar = {
             AppStandardToolbar(
                 title = "Settings",
-                onBackClick = onBackPress
+                onBackClick = onBackPress,
             )
-        }
-    )
-    { innerPadding ->
+        },
+    ) { innerPadding ->
         Greeting(
             name = "Settings",
-            modifier = Modifier.padding(innerPadding)
+            modifier = Modifier.padding(innerPadding),
         )
     }
 }
+
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
     )
 }

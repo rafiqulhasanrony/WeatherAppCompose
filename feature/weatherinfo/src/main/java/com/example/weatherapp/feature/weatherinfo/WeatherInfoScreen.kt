@@ -19,11 +19,11 @@ import com.example.weatherapp.core.ui.AppStandardToolbar
 @Composable
 internal fun WeatherInfoRoute(
     onSearchClick: () -> Unit,
-    onSettingsClick: () -> Unit
+    onSettingsClick: () -> Unit,
 ) {
     WeatherInfoScreen(
         onSearchClick = onSearchClick,
-        onSettingsClick = onSettingsClick
+        onSettingsClick = onSettingsClick,
     )
 }
 
@@ -31,7 +31,7 @@ internal fun WeatherInfoRoute(
 @Composable
 internal fun WeatherInfoScreen(
     onSearchClick: () -> Unit,
-    onSettingsClick: () -> Unit
+    onSettingsClick: () -> Unit,
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -40,14 +40,13 @@ internal fun WeatherInfoScreen(
         topBar = {
             Toolbar(
                 onSearchClick = onSearchClick,
-                onSettingsClick = onSettingsClick
+                onSettingsClick = onSettingsClick,
             )
-        }
-    )
-    { innerPadding ->
+        },
+    ) { innerPadding ->
         Greeting(
             name = "Android",
-            modifier = Modifier.padding(innerPadding)
+            modifier = Modifier.padding(innerPadding),
         )
     }
 }
@@ -56,7 +55,7 @@ internal fun WeatherInfoScreen(
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -64,7 +63,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 internal fun Toolbar(
     onSearchClick: () -> Unit,
-    onSettingsClick: () -> Unit
+    onSettingsClick: () -> Unit,
 ) {
     AppStandardToolbar(
         title = "Weather Info",
@@ -72,26 +71,26 @@ internal fun Toolbar(
             IconButton(
                 onClick = {
                     onSearchClick.invoke()
-                }
+                },
             ) {
                 Icon(
                     imageVector = AppIcons.search,
                     contentDescription = "Location Search",
-                    tint = MaterialTheme.colorScheme.onSurface
+                    tint = MaterialTheme.colorScheme.onSurface,
                 )
             }
             IconButton(
                 onClick = {
                     onSettingsClick.invoke()
-                }
+                },
             ) {
                 Icon(
                     imageVector = AppIcons.settings,
                     contentDescription = "settings",
-                    tint = MaterialTheme.colorScheme.onSurface
+                    tint = MaterialTheme.colorScheme.onSurface,
                 )
             }
-        }
+        },
     )
 }
 
@@ -102,4 +101,3 @@ fun WeatherInfoScreenPreview() {
         WeatherInfoScreen({}, {})
     }
 }
-

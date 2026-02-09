@@ -165,11 +165,14 @@ data class ColorFamily(
     val color: Color,
     val onColor: Color,
     val colorContainer: Color,
-    val onColorContainer: Color
+    val onColorContainer: Color,
 )
 
 val unspecified_scheme = ColorFamily(
-    Color.Unspecified, Color.Unspecified, Color.Unspecified, Color.Unspecified
+    Color.Unspecified,
+    Color.Unspecified,
+    Color.Unspecified,
+    Color.Unspecified,
 )
 
 @Composable
@@ -177,7 +180,9 @@ fun AppTheme(
     isDarkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     isDynamicTheme: Boolean = false,
-    content: @Composable() () -> Unit
+    content:
+    @Composable()
+    () -> Unit,
 ) {
     val colorScheme = when {
         isDynamicTheme && supportsDynamicTheming() -> {
@@ -210,7 +215,7 @@ fun AppTheme(
     }
     val tintTheme = when {
         isDynamicTheme && supportsDynamicTheming() -> TintTheme(
-            colorScheme.primary
+            colorScheme.primary,
         )
 
         else -> TintTheme()
@@ -225,11 +230,10 @@ fun AppTheme(
         MaterialTheme(
             colorScheme = colorScheme,
             typography = AppTypography,
-            content = content
+            content = content,
         )
     }
 }
 
 @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.S)
 fun supportsDynamicTheming() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-

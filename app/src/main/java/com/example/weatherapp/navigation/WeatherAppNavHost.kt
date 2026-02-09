@@ -16,16 +16,15 @@ fun WeatherAppNavHost(modifier: Modifier = Modifier) {
     NavHost(
         navController = navController,
         startDestination = WeatherInfoRoute,
-        modifier = modifier
+        modifier = modifier,
     ) {
         weatherInfoScreen(
             onSearchClick = navController::navigateToSetting,
-            onSettingClick = navController::navigateToSetting
+            onSettingClick = navController::navigateToSetting,
         )
 
         settingsScreen(
-            onBackPress = navController::popBackStack
+            onBackPress = navController::popBackStack,
         )
     }
-
 }

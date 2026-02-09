@@ -63,6 +63,3 @@ fun BackgroundDynamic() {
         AppBackground(Modifier.size(100.dp), content = {})
     }
 }
-
-
-

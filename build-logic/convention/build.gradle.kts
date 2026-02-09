@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     `kotlin-dsl`
+    alias(libs.plugins.android.lint)
 }
 
 group = "com.example.weatherapp.build_logic.convention"
@@ -25,13 +26,12 @@ dependencies {
     compileOnly(libs.android.tools.common)
     compileOnly(libs.compose.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
-
     implementation(libs.truth)
+    compileOnly(libs.spotless.gradlePlugin)
 
 //    compileOnly(libs.firebase.crashlytics.gradlePlugin)
 //    compileOnly(libs.firebase.performance.gradlePlugin)
 //    compileOnly(libs.room.gradlePlugin)
-//    implementation(libs.truth)
 //    lintChecks(libs.androidx.lint.gradle)
 }
 
@@ -93,13 +93,13 @@ gradlePlugin {
 //            id = libs.plugins.nowinandroid.android.application.flavors.get().pluginId
 //            implementationClass = "AndroidApplicationFlavorsConventionPlugin"
 //        }
-//        register("jvmLibrary") {
-//            id = libs.plugins.nowinandroid.jvm.library.get().pluginId
-//            implementationClass = "JvmLibraryConventionPlugin"
-//        }
-//        register("root") {
-//            id = libs.plugins.nowinandroid.root.get().pluginId
-//            implementationClass = "RootPlugin"
-//        }
+        register("jvmLibrary") {
+            id = libs.plugins.weatherapp.jvm.library.get().pluginId
+            implementationClass = "JvmLibraryConventionPlugin"
+        }
+        register("root") {
+            id = libs.plugins.weatherapp.root.get().pluginId
+            implementationClass = "RootPlugin"
+        }
     }
 }

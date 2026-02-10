@@ -24,6 +24,7 @@ rootProject.name = "WeatherApp"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
+include(":core:common")
 include(":core:designsystem")
 include(":core:ui")
 include(":feature:weatherinfo")

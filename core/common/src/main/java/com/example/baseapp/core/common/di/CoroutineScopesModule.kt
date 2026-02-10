@@ -1,6 +1,5 @@
 package com.example.baseapp.core.common.di
 
-
 import com.example.baseapp.core.common.dispatcher.DefaultDispatcher
 import dagger.Module
 import dagger.Provides

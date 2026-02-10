@@ -5,10 +5,8 @@ import com.example.baseapp.core.common.result.Result
 import com.example.baseapp.core.common.result.asResult
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
-
 
 class ResultTest {
     @Test
@@ -30,11 +28,11 @@ class ResultTest {
         }.asResult()
             .test {
                 assertEquals(Result.Loading, awaitItem())
-                when(val result = awaitItem()) {
+                when (val result = awaitItem()) {
                     is Result.Error -> assertEquals(ERROR_MSG, result.exception.message)
                     Result.Loading,
                     is Result.Success,
-                        -> throw IllegalStateException(
+                    -> throw IllegalStateException(
                         "The flow should have emitted an Error Result",
                     )
                 }
@@ -42,7 +40,7 @@ class ResultTest {
             }
     }
 
-    companion object{
+    companion object {
         private const val ERROR_MSG = "Test Exception"
     }
 }

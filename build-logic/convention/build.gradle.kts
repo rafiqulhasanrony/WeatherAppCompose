@@ -93,6 +93,10 @@ gradlePlugin {
 //            id = libs.plugins.nowinandroid.android.application.flavors.get().pluginId
 //            implementationClass = "AndroidApplicationFlavorsConventionPlugin"
 //        }
+        register("androidLint") {
+            id = libs.plugins.weatherapp.android.lint.get().pluginId
+            implementationClass = "AndroidLintConventionPlugin"
+        }
         register("jvmLibrary") {
             id = libs.plugins.weatherapp.jvm.library.get().pluginId
             implementationClass = "JvmLibraryConventionPlugin"

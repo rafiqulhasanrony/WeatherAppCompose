@@ -17,6 +17,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { setUrl("https://jitpack.io") }
     }
 }
 
@@ -27,5 +28,6 @@ include(":app")
 include(":core:common")
 include(":core:designsystem")
 include(":core:ui")
-include(":feature:weatherinfo")
+include(":core:network")
 include(":feature:settings")
+include(":feature:weatherinfo")

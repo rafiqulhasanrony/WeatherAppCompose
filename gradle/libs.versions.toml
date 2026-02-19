@@ -1,7 +1,7 @@
 [versions]
-agp = "9.0.0"
+agp = "9.0.1"
 androidDesugarJdkLibs = "2.1.5"
-androidGradlePlugin = "9.0.0"
+androidGradlePlugin = "9.0.1"
 androidTools = "32.0.0"
 kotlin = "2.3.10"
 kotlinxCoroutines = "1.10.2"

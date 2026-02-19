@@ -40,9 +40,9 @@ class SafeApiExecutor @Inject constructor() {
         } catch (_: UnknownHostException) {
             Result.Error(RequestException(ErrorMessages.UNKNOWN_HOST))
         } catch (_: SocketTimeoutException) {
-            Result.Error(RequestException(ErrorMessages.SOCKET_TIMEOUT))
+            Result.Error(RequestException(ErrorMessages.TIMEOUT))
         } catch (_: IOException) {
-            Result.Error(RequestException(ErrorMessages.CONNECT))
+            Result.Error(RequestException(ErrorMessages.TIMEOUT))
         } catch (_: HttpException) {
             Result.Error(RequestException(ErrorMessages.UNKNOWN_NETWORK))
         } catch (_: Exception) {
@@ -74,11 +74,10 @@ class SafeApiExecutor @Inject constructor() {
     }
 }
 
-private object ErrorMessages {
-    const val SOCKET_TIMEOUT = "Please check your internet connection"
-    const val CONNECT = "Please check your internet connection"
-    const val UNKNOWN_NETWORK = "Please check your network connection and try again."
+object ErrorMessages {
+    const val TIMEOUT = "Please check your internet connection"
+    const val UNKNOWN_NETWORK = "Please check your network connection and try again"
     const val EMPTY_BODY = "Response body can not be empty"
     const val UNKNOWN_HOST =
-        "Couldn't connect to the server at the moment. Please try again in a few minutes."
+        "Couldn't connect to the server at the moment. Please try again in a few minutes"
 }

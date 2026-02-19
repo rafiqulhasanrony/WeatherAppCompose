@@ -1,6 +1,7 @@
 package com.example.baseapp.core.network
 
 import com.example.baseapp.core.common.result.Result
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.ResponseBody
@@ -19,8 +20,9 @@ import javax.inject.Singleton
 class SafeApiExecutor @Inject constructor() {
 
     suspend fun <T : Any> execute(
+        dispatcher: CoroutineDispatcher = Dispatchers.IO,
         call: suspend () -> Response<T>,
-    ): Result<T> = withContext(Dispatchers.IO) {
+    ): Result<T> = withContext(dispatcher) {
         try {
             val response = call()
 

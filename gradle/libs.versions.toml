@@ -17,6 +17,7 @@ composeBom = "2026.02.00"
 androidxComposeFoundation = "1.10.3"
 androidxComposeMaterial3Adaptive = "1.2.0"
 androidxNavigation = "2.9.7"
+androidxDataStore = "1.1.6"
 androidxTestRules = "1.7.0"
 truth = "1.4.5"
 turbine = "1.2.1"
@@ -63,6 +64,8 @@ androidx-compose-ui-util = { group = "androidx.compose.ui", name = "ui-util" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
 androidx-navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "androidxNavigation" }
+androidx-dataStore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "androidxDataStore" }
+
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-ui-testManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }

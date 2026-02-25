@@ -26,6 +26,7 @@ rootProject.name = "WeatherApp"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":core:common")
+include(":core:datastore-preference")
 include(":core:designsystem")
 include(":core:network")
 include(":core:testing")

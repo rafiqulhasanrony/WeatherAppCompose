@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.weatherapp.core.designsystem.component.AppBackground
 import com.example.weatherapp.core.designsystem.theme.AppTheme
-import com.example.weatherapp.navigation.WeatherAppNavHost
+import com.example.weatherapp.navigation.WeatherAppNavDisplay
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppTheme {
                 AppBackground {
-                    WeatherAppNavHost(modifier = Modifier.fillMaxSize())
+                    WeatherAppNavDisplay(modifier = Modifier.fillMaxSize())
                 }
             }
         }

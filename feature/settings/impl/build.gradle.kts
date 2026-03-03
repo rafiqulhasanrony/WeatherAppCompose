@@ -9,5 +9,5 @@ android {
 }
 
 dependencies {
-    
+    implementation(projects.feature.settings.publicApi)
 }

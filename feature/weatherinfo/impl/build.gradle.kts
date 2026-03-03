@@ -9,5 +9,6 @@ android {
 }
 
 dependencies {
-
+    implementation(projects.feature.weatherinfo.publicApi)
+    implementation(projects.feature.settings.publicApi)
 }

@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.weatherapp.android.feature)
+    alias(libs.plugins.weatherapp.android.feature.impl)
     alias(libs.plugins.weatherapp.android.library.compose)
 }
 

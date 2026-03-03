@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.weatherapp.feature.settings"
+    namespace = "com.example.weatherapp.feature.settings.impl"
 
 }
 

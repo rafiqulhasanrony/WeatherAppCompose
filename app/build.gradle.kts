@@ -27,7 +27,7 @@ dependencies {
     implementation(projects.core.ui)
     
     implementation(projects.feature.weatherinfo)
-    implementation(projects.feature.settings)
+    implementation(projects.feature.settings.impl)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)

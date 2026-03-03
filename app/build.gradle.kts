@@ -26,7 +26,7 @@ dependencies {
     implementation(projects.core.designsystem)
     implementation(projects.core.ui)
     
-    implementation(projects.feature.weatherinfo)
+    implementation(projects.feature.weatherinfo.impl)
     implementation(projects.feature.settings.impl)
 
     implementation(libs.androidx.core.ktx)

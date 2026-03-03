@@ -35,6 +35,7 @@
             <option value="$PROJECT_DIR$/feature/settings" />
             <option value="$PROJECT_DIR$/feature/settings/impl" />
             <option value="$PROJECT_DIR$/feature/weatherinfo" />
+            <option value="$PROJECT_DIR$/feature/weatherinfo/impl" />
           </set>
         </option>
       </GradleProjectSettings>

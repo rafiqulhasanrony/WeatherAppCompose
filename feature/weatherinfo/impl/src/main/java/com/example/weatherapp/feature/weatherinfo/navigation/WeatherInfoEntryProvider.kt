@@ -7,11 +7,11 @@ import com.example.weatherApp.feature.settings.publicApi.navigation.SettingsNavK
 import com.example.weatherapp.feature.weatherinfo.WeatherInfoScreen
 import com.example.weatherapp.weatherinfo.publicapi.navigation.WeatherInfoNavKey
 
-fun EntryProviderScope<NavKey>.weatherInfoEntry(backStack: NavBackStack<NavKey>){
-    entry <WeatherInfoNavKey>{
+fun EntryProviderScope<NavKey>.weatherInfoEntry(backStack: NavBackStack<NavKey>) {
+    entry<WeatherInfoNavKey> {
         WeatherInfoScreen(
-            onSearchClick = {  },
-            onSettingsClick = { backStack.add(SettingsNavKey) }
+            onSearchClick = { },
+            onSettingsClick = { backStack.add(SettingsNavKey) },
         )
     }
 }

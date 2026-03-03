@@ -1,6 +1,5 @@
 package com.example.weatherapp.navigation
 
-
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.entryProvider
@@ -11,7 +10,7 @@ import com.example.weatherapp.feature.weatherinfo.navigation.weatherInfoEntry
 import com.example.weatherapp.weatherinfo.publicapi.navigation.WeatherInfoNavKey
 
 @Composable
-fun WeatherAppNavDisplay  (modifier: Modifier = Modifier) {
+fun WeatherAppNavDisplay(modifier: Modifier = Modifier) {
     val navBackStack = rememberNavBackStack(WeatherInfoNavKey)
 
     NavDisplay(
@@ -20,6 +19,7 @@ fun WeatherAppNavDisplay  (modifier: Modifier = Modifier) {
         entryProvider = entryProvider {
             weatherInfoEntry(navBackStack)
             settingsEntry(navBackStack)
-        }
+        },
+        modifier = modifier,
     )
 }

@@ -11,7 +11,7 @@ fun EntryProviderScope<NavKey>.settingsEntry(backStack: NavBackStack<NavKey>) {
         SettingsScreen(
             onBackPress = {
                 backStack.removeLastOrNull()
-            }
+            },
         )
     }
 }

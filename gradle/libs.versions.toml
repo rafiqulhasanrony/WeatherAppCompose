@@ -2,9 +2,9 @@
 #---- Android & Build Tools -----
 androidGradlePlugin = "9.0.1"
 androidDesugarJdkLibs = "2.1.5"
-androidTools = "32.0.1"
+androidTools = "32.1.0"
 ksp = "2.3.4"
-spotless = "8.2.1"
+spotless = "8.3.0"
 
 # ---- Kotlin ----
 kotlin = "2.3.10"

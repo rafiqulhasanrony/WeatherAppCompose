@@ -25,11 +25,13 @@ android {
 dependencies {
     implementation(projects.core.designsystem)
     implementation(projects.core.ui)
+    implementation(projects.core.navigation)
 
     implementation(projects.feature.weatherinfo.impl)
     implementation(projects.feature.weatherinfo.publicApi)
 
     implementation(projects.feature.settings.impl)
+    implementation(projects.feature.settings.publicApi)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
@@ -40,9 +42,10 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.navigation3.ui)
-    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.lifecycle.viewModel.navigation3)
 
     //hilt
     implementation(libs.androidx.hilt.navigation.compose)

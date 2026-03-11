@@ -10,8 +10,11 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.weatherapp.core.designsystem.component.AppBackground
 import com.example.weatherapp.core.designsystem.theme.AppTheme
 import com.example.weatherapp.navigation.WeatherAppNavDisplay
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val splashScreen = installSplashScreen()

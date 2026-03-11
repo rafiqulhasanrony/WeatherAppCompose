@@ -1,4 +1,3 @@
-import com.example.weatherapp.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
@@ -11,7 +10,7 @@ class AndroidFeaturePublicApiConventionPlugin : Plugin<Project> {
             apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
 
             dependencies {
-                "implementation"(libs.findLibrary("androidx.navigation3.runtime").get())
+                "api"(project(":core:navigation"))
             }
         }
     }

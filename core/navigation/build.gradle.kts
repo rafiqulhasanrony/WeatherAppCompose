@@ -9,4 +9,5 @@ android {
 
 dependencies {
     api(libs.androidx.navigation3.runtime)
+    testImplementation(projects.core.testing)
 }

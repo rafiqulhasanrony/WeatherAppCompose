@@ -13,7 +13,7 @@ kotlinxSerializationJson = "1.10.0"
 ktlint = "1.4.0"
 
 # ---- AndroidX Core -------
-coreKtx = "1.17.0"
+coreKtx = "1.18.0"
 androidxCoreSplashscreen = "1.2.0"
 appcompat = "1.7.1"
 appcompatVersion = "1.7.1"
@@ -21,10 +21,10 @@ material = "1.13.0"
 materialVersion = "1.13.0"
 
 # ---- Jetpack Compose -----
-composeBom = "2026.02.01"
-androidxComposeFoundation = "1.10.4"
+composeBom = "2026.03.00"
+androidxComposeFoundation = "1.10.5"
 androidxComposeMaterial3Adaptive = "1.2.0"
-activityCompose  = "1.12.4"
+activityCompose  = "1.13.0"
 
 # ---- Lifecycle ----
 lifecycleRuntimeKtx = "2.10.0"
@@ -36,7 +36,7 @@ androidxNavigation3 = "1.0.1"
 androidxLifecycleViewModelNavigation3 = "2.10.0"
 
 # ---- DataStore ----
-androidxDataStore = "1.2.0"
+androidxDataStore = "1.2.1"
 
 # ---- Dependency Injection (Hilt) ----
 hilt = "2.59.2"
@@ -56,7 +56,7 @@ espressoCore = "3.7.0"
 androidxTestRules = "1.7.0"
 truth = "1.4.5"
 turbine = "1.2.1"
-mockito = "5.22.0"
+mockito = "5.23.0"
 mockitoKotlin = "6.2.3"
 assertj = "3.27.7"
 

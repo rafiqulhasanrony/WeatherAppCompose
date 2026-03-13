@@ -1,5 +1,6 @@
 package com.example.baseapp.core.navigation
 
+import androidx.annotation.VisibleForTesting
 import androidx.navigation3.runtime.NavKey
 
 class NavigatorImpl(
@@ -24,4 +25,7 @@ class NavigatorImpl(
         state.backStack.clear()
         state.backStack.add(root)
     }
+
+    @get:VisibleForTesting
+    val backStack = state.backStack
 }

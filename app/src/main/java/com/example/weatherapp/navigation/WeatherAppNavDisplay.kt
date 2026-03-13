@@ -11,32 +11,41 @@ import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDe
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
-import com.example.baseapp.core.navigation.Navigator
+import com.example.baseapp.core.navigation.EntryProviderInstaller
+import com.example.baseapp.core.navigation.NavigatorImpl
 import com.example.baseapp.core.navigation.rememberNavigationState
-import com.example.weatherapp.feature.settings.navigation.settingsEntry
-import com.example.weatherapp.feature.weatherinfo.navigation.weatherInfoEntry
 import com.example.weatherapp.weatherinfo.publicapi.navigation.WeatherInfoNavKey
 
 private const val NAV_ANIMATION_DURATION = 300
 
 @Composable
-fun WeatherAppNavDisplay(modifier: Modifier = Modifier) {
+fun WeatherAppNavDisplay(
+    modifier: Modifier = Modifier,
+    entryInstallers: Set<EntryProviderInstaller>,
+) {
     val navigationState = rememberNavigationState(WeatherInfoNavKey)
-    val navigator = remember { Navigator(navigationState) }
+
+    val navigator = remember {
+        NavigatorImpl(navigationState)
+    }
 
     NavDisplay(
         modifier = modifier,
         backStack = navigationState.backStack,
-        onBack = { navigator.goBack() },
+
+        onBack = {
+            navigator.pop()
+        },
+
         entryProvider = entryProvider {
-            weatherInfoEntry(navigator)
-            settingsEntry(navigator)
+            entryInstallers.forEach { installer ->
+                installer(navigator)
+            }
         },
         entryDecorators = listOf(
             rememberSaveableStateHolderNavEntryDecorator(),
             rememberViewModelStoreNavEntryDecorator(),
         ),
-
         transitionSpec = {
             // Slide in from right when navigating forward
             forwardTransition(NAV_ANIMATION_DURATION)

@@ -7,13 +7,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.example.baseapp.core.navigation.EntryProviderInstaller
 import com.example.weatherapp.core.designsystem.component.AppBackground
 import com.example.weatherapp.core.designsystem.theme.AppTheme
 import com.example.weatherapp.navigation.WeatherAppNavDisplay
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var entryProviderScopes: Set<@JvmSuppressWildcards EntryProviderInstaller>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +32,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppTheme {
                 AppBackground {
-                    WeatherAppNavDisplay(modifier = Modifier.fillMaxSize())
+                    WeatherAppNavDisplay(modifier = Modifier.fillMaxSize(), entryProviderScopes)
                 }
             }
         }

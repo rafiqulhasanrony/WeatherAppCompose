@@ -35,7 +35,7 @@
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/settings" />
             <option value="$PROJECT_DIR$/feature/settings/impl" />
-            <option value="$PROJECT_DIR$/feature/settings/publicApi" />
+            <option value="$PROJECT_DIR$/feature/settings/public-api" />
             <option value="$PROJECT_DIR$/feature/weatherinfo" />
             <option value="$PROJECT_DIR$/feature/weatherinfo/impl" />
             <option value="$PROJECT_DIR$/feature/weatherinfo/public-api" />

@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,6 +20,7 @@ import com.example.weatherapp.core.designsystem.theme.Spacing
 
 object AppList
 
+@Stable
 class ListTitleProperties(
     val title: TextData,
     val subtitle: TextData? = null,

@@ -66,7 +66,7 @@ fun AppStandardToolbarPreview() {
 fun AppStandardToolbarWithNavigationBackPreview() {
     AppTheme {
         AppStandardToolbar(
-            title = TextData.of("Weather Info",),
+            title = TextData.of("Weather Info"),
             onBackClick = {
             },
         )

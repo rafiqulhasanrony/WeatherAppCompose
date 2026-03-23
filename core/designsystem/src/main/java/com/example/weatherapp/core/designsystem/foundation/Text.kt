@@ -10,10 +10,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import com.example.weatherapp.core.designsystem.foundation.textformat.TextData
 
 @Composable
 fun AppText(
-    text: String,
+    textData: TextData,
     modifier: Modifier = Modifier,
     textStyle: TextStyle = LocalTextStyle.current,
     color: Color = Color.Unspecified,
@@ -24,7 +25,7 @@ fun AppText(
     textAlign: TextAlign? = null,
 ) {
     Text(
-        text = text,
+        text = textData.resolve(),
         modifier = modifier
             .alpha(alpha),
         color = color,

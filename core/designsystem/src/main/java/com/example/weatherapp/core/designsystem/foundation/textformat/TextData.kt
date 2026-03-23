@@ -2,9 +2,11 @@ package com.example.weatherapp.core.designsystem.foundation.textformat
 
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 
+@Stable
 abstract class TextData {
 
     @Composable

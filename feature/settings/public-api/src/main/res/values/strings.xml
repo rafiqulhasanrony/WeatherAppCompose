@@ -1,8 +1,19 @@
 <resources>
     <string name="feature_settings_public_api_toolbar_title">Settings</string>
+    <string name="feature_settings_public_api_title_display">Display</string>
     <string name="feature_settings_public_api_dynamic_theme">Dynamic Theme</string>
     <string name="feature_settings_public_api_current_theme">Current Theme</string>
     <string name="feature_settings_public_api_theme_dark">Dark</string>
     <string name="feature_settings_public_api_theme_light">Light</string>
     <string name="feature_settings_public_api_theme_system">System</string>
+
+    <string name="feature_settings_public_api_title_unit_of_measurement">Unit of measurement</string>
+    <string name="feature_settings_public_api_temperature">Temperature</string>
+    <string name="feature_settings_public_api_temperature_celsius">Celsius</string>
+    <string name="feature_settings_public_api_temperature_fahrenheit">Temperature</string>
+    <string name="feature_settings_public_api_wind_speed">Wind Speed</string>
+    <string name="feature_settings_public_api_wind_speed_km">km/h</string>
+    <string name="feature_settings_public_api_wind_speed_mph">mph</string>
+    <string name="feature_settings_public_api_wind_speed_meter">m/s</string>
+
 </resources>

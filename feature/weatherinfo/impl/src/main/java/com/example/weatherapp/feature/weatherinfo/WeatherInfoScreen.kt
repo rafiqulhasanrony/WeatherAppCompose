@@ -12,9 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.weatherapp.core.designsystem.foundation.textformat.TextData
 import com.example.weatherapp.core.designsystem.icons.AppIcons
 import com.example.weatherapp.core.designsystem.theme.AppTheme
 import com.example.weatherapp.core.ui.AppStandardToolbar
+import com.example.weatherapp.weatherinfo.publicapi.R.string
 
 @Composable
 internal fun WeatherInfoRoute(
@@ -66,7 +68,7 @@ internal fun Toolbar(
     onSettingsClick: () -> Unit,
 ) {
     AppStandardToolbar(
-        title = "Weather Info",
+        title = TextData.of(string.feature_weatherinfo_public_api_toolbar_title),
         actions = {
             IconButton(
                 onClick = {

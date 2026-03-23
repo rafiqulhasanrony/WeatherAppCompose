@@ -14,13 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.weatherapp.core.designsystem.foundation.AppText
 import com.example.weatherapp.core.designsystem.foundation.Tag
+import com.example.weatherapp.core.designsystem.foundation.textformat.TextData
 import com.example.weatherapp.core.designsystem.theme.Spacing
 
 object AppList
 
 class ListTitleProperties(
-    val title: String,
-    val subtitle: String? = null,
+    val title: TextData,
+    val subtitle: TextData? = null,
 )
 
 @Composable
@@ -29,7 +30,7 @@ fun AppList.TitleWithTag(modifier: Modifier = Modifier, listTitleProperties: Lis
         modifier = modifier,
         leadingContent = {
             AppText(
-                text = listTitleProperties.title,
+                textData = listTitleProperties.title,
             )
         },
         trailingContent = {
@@ -54,7 +55,7 @@ fun AppList.TitleWithSwitch(
         modifier = modifier,
         leadingContent = {
             AppText(
-                text = listTitleProperties.title,
+                textData = listTitleProperties.title,
             )
         },
         trailingContent = {
@@ -68,9 +69,9 @@ fun AppList.TitleWithSwitch(
 
 @Preview
 @Composable
-fun ListTTile() {
+fun ListTile() {
     AppList.TitleWithTag(
-        listTitleProperties = ListTitleProperties("Title", "Subtitle"),
+        listTitleProperties = ListTitleProperties(TextData.of("Title"), TextData.of("Subtitle")),
     )
 }
 

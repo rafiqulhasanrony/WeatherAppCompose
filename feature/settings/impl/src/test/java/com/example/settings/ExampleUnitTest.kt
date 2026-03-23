@@ -1,5 +1,6 @@
 package com.example.settings
 
+import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 /**

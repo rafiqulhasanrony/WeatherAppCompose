@@ -38,7 +38,7 @@
             <option value="$PROJECT_DIR$/feature/settings/publicApi" />
             <option value="$PROJECT_DIR$/feature/weatherinfo" />
             <option value="$PROJECT_DIR$/feature/weatherinfo/impl" />
-            <option value="$PROJECT_DIR$/feature/weatherinfo/publicApi" />
+            <option value="$PROJECT_DIR$/feature/weatherinfo/public-api" />
           </set>
         </option>
       </GradleProjectSettings>

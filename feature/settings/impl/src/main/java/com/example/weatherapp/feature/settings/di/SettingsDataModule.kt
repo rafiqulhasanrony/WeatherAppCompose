@@ -20,5 +20,7 @@ abstract class SettingsDataModule {
 
     @Singleton
     @Binds
-    abstract fun bindSettingsPreferenceDataStore(settingsPreferenceDataSource: SettingsPreferenceDataSourceImpl): SettingsPreferenceDataSource
+    abstract fun bindSettingsPreferenceDataStore(
+        settingsPreferenceDataSource: SettingsPreferenceDataSourceImpl,
+    ): SettingsPreferenceDataSource
 }

@@ -1,8 +1,5 @@
 package com.example.weatherapp.feature.settings.data.repository
 
-import com.example.baseapp.core.datastore.PreferenceDataStoreAPI
-import com.example.weatherApp.feature.settings.publicApi.R
-import com.example.weatherApp.feature.settings.publicApi.datastore.SettingsDataStoreKeys
 import com.example.weatherApp.feature.settings.publicApi.model.TemperatureUnit
 import com.example.weatherApp.feature.settings.publicApi.model.ThemeType
 import com.example.weatherApp.feature.settings.publicApi.model.WindSpeedUnit

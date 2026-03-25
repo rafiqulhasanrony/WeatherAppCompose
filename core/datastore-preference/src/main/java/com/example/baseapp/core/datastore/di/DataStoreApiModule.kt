@@ -17,5 +17,5 @@ abstract class DataStoreApiModule {
 
     @Binds
     @Singleton
-    abstract fun providePreferenceDataStoreAPI(sourceImpl: PreferenceDataStoreAPIImpl): PreferenceDataStoreAPI
+    abstract fun bindsPreferenceDataStoreAPI(sourceImpl: PreferenceDataStoreAPIImpl): PreferenceDataStoreAPI
 }

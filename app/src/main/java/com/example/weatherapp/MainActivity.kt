@@ -18,7 +18,7 @@ import javax.inject.Inject
 class MainActivity : ComponentActivity() {
 
     @Inject
-    lateinit var entryProviderScopes: Set<@JvmSuppressWildcards EntryProviderInstaller>
+    lateinit var entryProviderInstaller: Set<@JvmSuppressWildcards EntryProviderInstaller>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppTheme {
                 AppBackground {
-                    WeatherAppNavDisplay(modifier = Modifier.fillMaxSize(), entryProviderScopes)
+                    WeatherAppNavDisplay(modifier = Modifier.fillMaxSize(), entryProviderInstaller)
                 }
             }
         }

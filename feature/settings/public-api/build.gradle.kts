@@ -5,3 +5,6 @@ plugins {
 android {
     namespace = "com.example.weatherApp.feature.settings.publicApi"
 }
+dependencies {
+    api(projects.core.datastorePreference)
+}

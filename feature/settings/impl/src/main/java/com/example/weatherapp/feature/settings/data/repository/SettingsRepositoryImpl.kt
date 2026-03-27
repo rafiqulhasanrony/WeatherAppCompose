@@ -16,10 +16,10 @@ class SettingsRepositoryImpl @Inject constructor(
     private val dataSource: SettingsPreferenceDataSource,
 ) : SettingsRepository {
 
-    override suspend fun isDynamicThemeEnabled(): Flow<Boolean> =
+    override fun isDynamicThemeEnabled(): Flow<Boolean> =
         dataSource.isDynamicThemeEnabled()
 
-    override suspend fun getAvailableThemeConfig(): Flow<List<ThemeConfig>> =
+    override fun getAvailableThemeConfig(): Flow<List<ThemeConfig>> =
         dataSource.getTheme().map { selectedType ->
             ThemeType.entries.map { type ->
                 ThemeConfig(
@@ -30,7 +30,7 @@ class SettingsRepositoryImpl @Inject constructor(
             }
         }
 
-    override suspend fun getTemperatureUnitConfig(): Flow<List<TemperatureUnitConfig>> =
+    override fun getTemperatureUnitConfig(): Flow<List<TemperatureUnitConfig>> =
         dataSource.getTemperatureUnit().map { selectedUnit ->
             TemperatureUnit.entries.map { unit ->
                 TemperatureUnitConfig(
@@ -41,7 +41,7 @@ class SettingsRepositoryImpl @Inject constructor(
             }
         }
 
-    override suspend fun getWindSpeedUnitConfig(): Flow<List<WindSpeedUnitConfig>> =
+    override fun getWindSpeedUnitConfig(): Flow<List<WindSpeedUnitConfig>> =
         dataSource.getWindSpeedUnit().map { selectedUnit ->
             WindSpeedUnit.entries.map { unit ->
                 WindSpeedUnitConfig(

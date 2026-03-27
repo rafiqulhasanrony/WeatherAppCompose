@@ -9,18 +9,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.weatherapp.core.designsystem.foundation.AppText
 import com.example.weatherapp.core.designsystem.foundation.textformat.TextData
+import kotlin.collections.forEachIndexed
 
 @Immutable
-data class SegmentedItem(
+data class SegmentedItem<T>(
     val textData: TextData,
     val isSelected: Boolean = false,
+    val type: T,
 )
 
 @Composable
-fun AppSegmentedButton(
-    items: List<SegmentedItem>,
+fun <T> AppSegmentedButton(
+    items: List<SegmentedItem<T>>,
     modifier: Modifier = Modifier,
-    onSelectionChange: (Int, SegmentedItem) -> Unit,
+    onSelectionChange: (Int, T) -> Unit,
 ) {
     SingleChoiceSegmentedButtonRow(
         modifier = modifier,
@@ -32,7 +34,7 @@ fun AppSegmentedButton(
                     count = items.size,
                 ),
                 onClick = {
-                    onSelectionChange(index, item)
+                    onSelectionChange(index, item.type)
                 },
                 selected = item.isSelected,
                 label = {
@@ -50,9 +52,9 @@ fun AppSegmentedButton(
 fun AppSegmentedButtonPreview() {
     AppSegmentedButton(
         items = listOf(
-            SegmentedItem(TextData.of("Dark")),
-            SegmentedItem(TextData.of("Light"), true),
-            SegmentedItem(TextData.of("System")),
+            SegmentedItem(TextData.of("Dark"), type = "dark"),
+            SegmentedItem(TextData.of("Light"), true, type = "light"),
+            SegmentedItem(TextData.of("System"), type = "System"),
         ),
         onSelectionChange = { _, _ -> },
     )

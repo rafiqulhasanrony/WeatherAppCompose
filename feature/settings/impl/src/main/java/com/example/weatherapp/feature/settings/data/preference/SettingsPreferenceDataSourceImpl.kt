@@ -14,25 +14,25 @@ class SettingsPreferenceDataSourceImpl @Inject constructor(
     private val preferenceDataStoreAPI: PreferenceDataStoreAPI,
 ) : SettingsPreferenceDataSource {
 
-    override suspend fun isDynamicThemeEnabled(): Flow<Boolean> =
+    override fun isDynamicThemeEnabled(): Flow<Boolean> =
         preferenceDataStoreAPI.getPreference(
             key = SettingsDataStoreKeys.DYNAMIC_THEME_PREF_KEY,
             defaultValue = false,
         )
 
-    override suspend fun getTheme(): Flow<ThemeType> =
+    override fun getTheme(): Flow<ThemeType> =
         preferenceDataStoreAPI.getPreference(
             key = SettingsDataStoreKeys.THEME_PREF_KEY,
             defaultValue = ThemeType.System.name,
         ).map { ThemeType.fromName(it) }
 
-    override suspend fun getTemperatureUnit(): Flow<TemperatureUnit> =
+    override fun getTemperatureUnit(): Flow<TemperatureUnit> =
         preferenceDataStoreAPI.getPreference(
             key = SettingsDataStoreKeys.TEMPERATURE_UNIT_MEASUREMENT_PREF_KEY,
             defaultValue = TemperatureUnit.Celsius.name,
         ).map { TemperatureUnit.fromName(it) }
 
-    override suspend fun getWindSpeedUnit(): Flow<WindSpeedUnit> =
+    override fun getWindSpeedUnit(): Flow<WindSpeedUnit> =
         preferenceDataStoreAPI.getPreference(
             key = SettingsDataStoreKeys.WIND_SPEED_UNIT_MEASUREMENT_PREF_KEY,
             defaultValue = WindSpeedUnit.KilometersPerHour.name,

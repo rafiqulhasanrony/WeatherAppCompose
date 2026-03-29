@@ -1,18 +1,15 @@
 package com.example.weatherapp.feature.settings.domain.preference
 
-import com.example.weatherApp.feature.settings.publicApi.model.TemperatureUnit
 import com.example.weatherApp.feature.settings.publicApi.model.ThemeType
-import com.example.weatherApp.feature.settings.publicApi.model.WindSpeedUnit
+import com.example.weatherApp.feature.settings.publicApi.model.UnitOfMeasurement
 import kotlinx.coroutines.flow.Flow
 
 interface SettingsPreferenceDataSource {
     fun isDynamicThemeEnabled(): Flow<Boolean>
-    fun getTheme(): Flow<ThemeType>
-    fun getTemperatureUnit(): Flow<TemperatureUnit>
-    fun getWindSpeedUnit(): Flow<WindSpeedUnit>
+    fun getSelectedTheme(): Flow<ThemeType>
+    fun getSelectedMeasurementUnit(): Flow<UnitOfMeasurement>
 
     suspend fun saveDynamicTheme(isEnabled: Boolean)
     suspend fun saveTheme(themeType: ThemeType)
-    suspend fun saveTemperatureUnit(unit: TemperatureUnit)
-    suspend fun saveWindSpeedUnit(unit: WindSpeedUnit)
+    suspend fun saveMeasurementUnit(unitOfMeasurement: UnitOfMeasurement)
 }

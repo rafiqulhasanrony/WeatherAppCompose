@@ -9,6 +9,5 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 object SettingsDataStoreKeys {
     val DYNAMIC_THEME_PREF_KEY = booleanPreferencesKey(Keys.DYNAMIC_THEME)
     val THEME_PREF_KEY = stringPreferencesKey(Keys.THEME_MODE)
-    val TEMPERATURE_UNIT_MEASUREMENT_PREF_KEY = stringPreferencesKey(Keys.TEMPERATURE_UNIT_MEASUREMENT)
-    val WIND_SPEED_UNIT_MEASUREMENT_PREF_KEY = stringPreferencesKey(Keys.WIND_SPEED_UNIT_MEASUREMENT)
+    val MEASUREMENT_UNIT_PREF_KEY = stringPreferencesKey(Keys.MEASUREMENT_UNIT)
 }

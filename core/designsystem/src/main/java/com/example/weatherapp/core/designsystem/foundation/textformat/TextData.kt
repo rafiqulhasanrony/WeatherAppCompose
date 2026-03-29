@@ -48,8 +48,12 @@ abstract class TextData {
 
     companion object {
         fun of(value: String): TextData = RawText(value = value)
-        fun of(@StringRes id: Int, args: List<Any> = emptyList()): TextData = ResourceText(resId = id)
+        fun of(
+            @StringRes id: Int?,
+            args: List<Any> = emptyList(),
+        ): TextData = id?.let { ResourceText(resId = id) } ?: RawText("")
         fun of(template: String, args: List<Any>): TextData = FormattedText(template, args)
         fun of(annotatedString: AnnotatedString): TextData = AnnotatedText(annotatedString)
+        fun empty(): TextData = of("")
     }
 }

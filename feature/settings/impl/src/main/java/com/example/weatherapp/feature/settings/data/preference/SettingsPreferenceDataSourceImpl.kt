@@ -2,9 +2,8 @@ package com.example.weatherapp.feature.settings.data.preference
 
 import com.example.baseapp.core.datastore.PreferenceDataStoreAPI
 import com.example.weatherApp.feature.settings.publicApi.datastore.SettingsDataStoreKeys
-import com.example.weatherApp.feature.settings.publicApi.model.TemperatureUnit
 import com.example.weatherApp.feature.settings.publicApi.model.ThemeType
-import com.example.weatherApp.feature.settings.publicApi.model.WindSpeedUnit
+import com.example.weatherApp.feature.settings.publicApi.model.UnitOfMeasurement
 import com.example.weatherapp.feature.settings.domain.preference.SettingsPreferenceDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -20,23 +19,17 @@ class SettingsPreferenceDataSourceImpl @Inject constructor(
             defaultValue = false,
         )
 
-    override fun getTheme(): Flow<ThemeType> =
+    override fun getSelectedTheme(): Flow<ThemeType> =
         preferenceDataStoreAPI.getPreference(
             key = SettingsDataStoreKeys.THEME_PREF_KEY,
             defaultValue = ThemeType.System.name,
         ).map { ThemeType.fromName(it) }
 
-    override fun getTemperatureUnit(): Flow<TemperatureUnit> =
+    override fun getSelectedMeasurementUnit(): Flow<UnitOfMeasurement> =
         preferenceDataStoreAPI.getPreference(
-            key = SettingsDataStoreKeys.TEMPERATURE_UNIT_MEASUREMENT_PREF_KEY,
-            defaultValue = TemperatureUnit.Celsius.name,
-        ).map { TemperatureUnit.fromName(it) }
-
-    override fun getWindSpeedUnit(): Flow<WindSpeedUnit> =
-        preferenceDataStoreAPI.getPreference(
-            key = SettingsDataStoreKeys.WIND_SPEED_UNIT_MEASUREMENT_PREF_KEY,
-            defaultValue = WindSpeedUnit.KilometersPerHour.name,
-        ).map { WindSpeedUnit.fromName(it) }
+            key = SettingsDataStoreKeys.MEASUREMENT_UNIT_PREF_KEY,
+            defaultValue = UnitOfMeasurement.Metric.name,
+        ).map { UnitOfMeasurement.fromName(it) }
 
     override suspend fun saveDynamicTheme(isEnabled: Boolean) {
         preferenceDataStoreAPI.putPreference(
@@ -52,17 +45,10 @@ class SettingsPreferenceDataSourceImpl @Inject constructor(
         )
     }
 
-    override suspend fun saveTemperatureUnit(unit: TemperatureUnit) {
+    override suspend fun saveMeasurementUnit(unitOfMeasurement: UnitOfMeasurement) {
         preferenceDataStoreAPI.putPreference(
-            key = SettingsDataStoreKeys.TEMPERATURE_UNIT_MEASUREMENT_PREF_KEY,
-            value = unit.name,
-        )
-    }
-
-    override suspend fun saveWindSpeedUnit(unit: WindSpeedUnit) {
-        preferenceDataStoreAPI.putPreference(
-            key = SettingsDataStoreKeys.WIND_SPEED_UNIT_MEASUREMENT_PREF_KEY,
-            value = unit.name,
+            key = SettingsDataStoreKeys.MEASUREMENT_UNIT_PREF_KEY,
+            value = unitOfMeasurement.name,
         )
     }
 }

@@ -15,6 +15,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.weatherApp.feature.settings.publicApi.R.string
@@ -23,9 +24,11 @@ import com.example.weatherApp.feature.settings.publicApi.model.UnitOfMeasurement
 import com.example.weatherapp.core.designsystem.component.AppList
 import com.example.weatherapp.core.designsystem.component.AppSegmentedButton
 import com.example.weatherapp.core.designsystem.component.ListTitleProperties
+import com.example.weatherapp.core.designsystem.component.SegmentedItem
 import com.example.weatherapp.core.designsystem.component.TitleWithSwitch
 import com.example.weatherapp.core.designsystem.component.TitleWithTag
 import com.example.weatherapp.core.designsystem.foundation.textformat.TextData
+import com.example.weatherapp.core.designsystem.theme.AppTheme
 import com.example.weatherapp.core.designsystem.theme.Spacing
 import com.example.weatherapp.core.ui.AppStandardToolbar
 import com.example.weatherapp.feature.settings.presentation.uimodel.ThemeConfigUiModel
@@ -65,7 +68,7 @@ internal fun SettingsScreen(
 }
 
 @Composable
-fun SettingsContentScreenView(
+private fun SettingsContentScreenView(
     modifier: Modifier = Modifier,
     isDynamicThemeEnabled: Boolean,
     themeConfigUiModel: ThemeConfigUiModel,
@@ -178,4 +181,38 @@ private fun UnitOfMeasurementContent(
 @Composable
 private fun SettingSelectedItem(listTitleProperties: ListTitleProperties) {
     AppList.TitleWithTag(listTitleProperties = listTitleProperties)
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun SettingsContentScreenPreview() {
+    AppTheme {
+        SettingsContentScreenView(
+            isDynamicThemeEnabled = true,
+            themeConfigUiModel = ThemeConfigUiModel(
+                selectedTheme = ListTitleProperties(
+                    title = TextData.of("Theme"),
+                    subtitle = TextData.of("System"),
+                ),
+                segmentedItems = listOf(
+                    SegmentedItem(TextData.of("Dark"), false, ThemeType.Dark),
+                    SegmentedItem(TextData.of("Light"), false, ThemeType.Light),
+                    SegmentedItem(TextData.of("System"), true, ThemeType.System),
+                ),
+            ),
+            unitOfMeasurementConfigUiModel = UnitOfMeasurementConfigUiModel(
+                selectedMeasurementUnit = ListTitleProperties(
+                    title = TextData.of("Unit of Measurement"),
+                    subtitle = TextData.of("Metric"),
+                ),
+                segmentedItems = listOf(
+                    SegmentedItem(TextData.of("Metric"), true, UnitOfMeasurement.Metric),
+                    SegmentedItem(TextData.of("Imperial"), false, UnitOfMeasurement.Imperial),
+                ),
+            ),
+            onDynamicThemeChange = {},
+            onThemeSelectionChange = {},
+            onUnitMeasurementChange = {},
+        )
+    }
 }

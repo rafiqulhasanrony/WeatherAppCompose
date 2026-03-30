@@ -21,8 +21,7 @@ class SettingsViewModel @Inject constructor(private val settingsRepository: Sett
         settingsRepository.isDynamicThemeEnabled(),
         settingsRepository.getSelectedTheme(),
         settingsRepository.getSelectedMeasurementUnit(),
-    ) {
-            isDynamicThemeEnabled, selectedTheme, selectedMeasurementUnit ->
+    ) { isDynamicThemeEnabled, selectedTheme, selectedMeasurementUnit ->
         SettingsUiModel(
             isDynamicThemeEnabled = isDynamicThemeEnabled,
             themeConfigUiModel = SettingsUiMapper.toThemeConfigUiModel(selectedTheme),

@@ -69,11 +69,11 @@ WeatherAppCompose/
 └── feature/
 ├── weatherinfo/
 │ ├── impl/ # ViewModel, screens, repository, data sources
-│ └── public-api/ # Nav routes + UseCase interfaces (no impl leaked)
+│ └── public-api/ # NavKey + UseCase/repository interfaces if needed (no impl leaked)
 │
 └── settings/
 ├── impl/ # ViewModel, settings screen, preference logic
-└── public-api/ # Nav routes + UseCase interfaces
+└── public-api/ # NavKey + UseCase/repository interfaces if needed
 ```
 
 Each feature is split into two modules:

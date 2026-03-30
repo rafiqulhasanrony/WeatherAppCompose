@@ -37,9 +37,7 @@ internal fun SettingsScreen(
     onBackPress: () -> Unit,
     viewModel: SettingsViewModel = hiltViewModel(),
 ) {
-    val isDynamicThemeEnable by viewModel.isDynamicThemeEnabled.collectAsStateWithLifecycle()
-    val themeConfigUiModel by viewModel.themeConfigUiModel.collectAsStateWithLifecycle()
-    val unitOfMeasurementConfigUiModel by viewModel.unitOfMeasurementConfigUiModel.collectAsStateWithLifecycle()
+    val settingsViewModel by viewModel.settingsUiModel.collectAsStateWithLifecycle()
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -56,9 +54,9 @@ internal fun SettingsScreen(
 
         SettingsContentScreenView(
             modifier = Modifier.padding(innerPadding),
-            isDynamicThemeEnabled = isDynamicThemeEnable,
-            themeConfigUiModel = themeConfigUiModel,
-            unitOfMeasurementConfigUiModel = unitOfMeasurementConfigUiModel,
+            isDynamicThemeEnabled = settingsViewModel.isDynamicThemeEnabled,
+            themeConfigUiModel = settingsViewModel.themeConfigUiModel,
+            unitOfMeasurementConfigUiModel = settingsViewModel.unitOfMeasurementConfigUiModel,
             onDynamicThemeChange = viewModel::updateDynamicTheme,
             onThemeSelectionChange = viewModel::updateTheme,
             onUnitMeasurementChange = viewModel::updateUnitOfMeasurement,

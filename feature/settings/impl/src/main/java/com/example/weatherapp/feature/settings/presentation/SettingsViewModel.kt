@@ -6,13 +6,10 @@ import com.example.weatherApp.feature.settings.publicApi.model.ThemeType
 import com.example.weatherApp.feature.settings.publicApi.model.UnitOfMeasurement
 import com.example.weatherapp.feature.settings.domain.repository.SettingsRepository
 import com.example.weatherapp.feature.settings.presentation.mapper.SettingsUiMapper
-import com.example.weatherapp.feature.settings.presentation.mapper.SettingsUiMapper.toThemeConfigUiModel
-import com.example.weatherapp.feature.settings.presentation.mapper.SettingsUiMapper.toUnitConfigUiModel
-import com.example.weatherapp.feature.settings.presentation.uimodel.ThemeConfigUiModel
-import com.example.weatherapp.feature.settings.presentation.uimodel.UnitOfMeasurementConfigUiModel
+import com.example.weatherapp.feature.settings.presentation.uimodel.SettingsUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -20,30 +17,22 @@ import javax.inject.Inject
 @HiltViewModel
 class SettingsViewModel @Inject constructor(private val settingsRepository: SettingsRepository) : ViewModel() {
 
-    val isDynamicThemeEnabled = settingsRepository.isDynamicThemeEnabled()
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5_000),
-            initialValue = false,
+    val settingsUiModel = combine(
+        settingsRepository.isDynamicThemeEnabled(),
+        settingsRepository.getSelectedTheme(),
+        settingsRepository.getSelectedMeasurementUnit(),
+    ) {
+            isDynamicThemeEnabled, selectedTheme, selectedMeasurementUnit ->
+        SettingsUiModel(
+            isDynamicThemeEnabled = isDynamicThemeEnabled,
+            themeConfigUiModel = SettingsUiMapper.toThemeConfigUiModel(selectedTheme),
+            unitOfMeasurementConfigUiModel = SettingsUiMapper.toUnitConfigUiModel(selectedMeasurementUnit),
         )
-
-    val themeConfigUiModel = settingsRepository
-        .getSelectedTheme()
-        .map(SettingsUiMapper::toThemeConfigUiModel)
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5_000),
-            initialValue = ThemeConfigUiModel(),
-        )
-
-    val unitOfMeasurementConfigUiModel = settingsRepository
-        .getSelectedMeasurementUnit()
-        .map(SettingsUiMapper::toUnitConfigUiModel)
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5_000),
-            initialValue = UnitOfMeasurementConfigUiModel(),
-        )
+    }.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5_000),
+        initialValue = SettingsUiModel(),
+    )
 
     fun updateDynamicTheme(isEnabled: Boolean) {
         viewModelScope.launch {

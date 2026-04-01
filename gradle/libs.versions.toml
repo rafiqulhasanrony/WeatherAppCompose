@@ -24,7 +24,7 @@ materialVersion = "1.13.0"
 composeBom = "2026.03.01"
 androidxComposeFoundation = "1.10.6"
 androidxComposeMaterial3Adaptive = "1.2.0"
-activityCompose  = "1.13.0"
+activityCompose = "1.13.0"
 
 # ---- Lifecycle ----
 lifecycleRuntimeKtx = "2.10.0"
@@ -51,6 +51,9 @@ loggingInterceptor = "4.0.0"
 
 # ---- Testing ----
 junit = "4.13.2"
+junit5 = "6.0.3"
+junitGradlePlugin = "2.0.1"
+
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
 androidxTestRules = "1.7.0"
@@ -70,14 +73,14 @@ material = { group = "com.google.android.material", name = "material", version.r
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 
 # ---- Jetpack Compose ----
-androidx-compose-bom  = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidxComposeFoundation" }
 androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout" }
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-compose-ui-util = { group = "androidx.compose.ui", name = "ui-util" }
-androidx-compose-ui-tooling  = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-compose-material3-navigationSuite = { group = "androidx.compose.material3", name = "material3-adaptive-navigation-suite" }
@@ -126,6 +129,10 @@ kotlin-metadata = { module = "org.jetbrains.kotlin:kotlin-metadata-jvm", version
 
 # ---- Testing ----
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+junit5 = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit5" }
+junit5JupiterEngine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit5" }
+junit5Params = { group = "org.junit.jupiter", name = "junit-jupiter-params", version.ref = "junit5" }
+junit5Vintage = { group = "org.junit.jupiter", name = "junit-vintage-engine", version.ref = "junit5" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidxTestRules" }
@@ -134,17 +141,19 @@ androidx-compose-ui-testManifest = { group = "androidx.compose.ui", name = "ui-t
 truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
-mockito-android  = { group = "org.mockito", name = "mockito-android", version.ref = "mockito" }
+mockito-android = { group = "org.mockito", name = "mockito-android", version.ref = "mockito" }
 mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlin" }
 assertj-core = { group = "org.assertj", name = "assertj-core", version.ref = "assertj" }
 
 # ---- Build Logic (Gradle Plugin Dependencies) ----
-android-gradleApiPlugin  = { group = "com.android.tools.build", name = "gradle-api", version.ref = "androidGradlePlugin" }
-android-tools-common  = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
+android-gradleApiPlugin = { group = "com.android.tools.build", name = "gradle-api", version.ref = "androidGradlePlugin" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 spotless-gradlePlugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
+junit5-gradlePlugin = { group  = "de.mannodermaus.gradle.plugins", name = "android-junit5", version.ref = "junitGradlePlugin" }
+
 
 
 [plugins]
@@ -161,9 +170,9 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 # ---- Code Quality ----
-spotless  = { id = "com.diffplug.spotless", version.ref = "spotless" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 # ---- Project Convention Plugins ----
-weatherapp-android-application  = { id = "weatherapp.android.application" }
+weatherapp-android-application = { id = "weatherapp.android.application" }
 weatherapp-android-application-compose = { id = "weatherapp.android.application.compose" }
 weatherapp-android-library = { id = "weatherapp.android.library" }
 weatherapp-android-library-compose = { id = "weatherapp.android.library.compose" }

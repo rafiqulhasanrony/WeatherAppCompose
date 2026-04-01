@@ -11,9 +11,6 @@ dependencies {
 
     implementation(libs.androidx.test.rules)
     implementation(libs.hilt.android.testing)
-    implementation(libs.mockito.core)
-    implementation(libs.mockito.kotlin)
-    implementation(libs.mockito.android)
     implementation(libs.assertj.core)
     implementation(libs.kotlin.test)
     implementation(kotlin("test"))

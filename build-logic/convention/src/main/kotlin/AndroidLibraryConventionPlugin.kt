@@ -28,15 +28,18 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             }
             configureSpotlessForAndroid()
             dependencies {
-                "androidTestImplementation"(libs.findLibrary("kotlin.test").get())
+                if (path != ":core:testing") {
+                    "implementation"(project(":core:testing"))
+                }
                 "testImplementation"(libs.findLibrary("kotlin.test").get())
-                //"testImplementation"(libs.findLibrary("junit").get())
+                // "testImplementation"(libs.findLibrary("junit").get())
                 "testImplementation"(libs.findLibrary("junit5").get())
-                "testRuntimeOnly"(libs.findLibrary("junit5JupiterEngine").get())
-                "testImplementation"(libs.findLibrary("junit5Params").get())
+                "testRuntimeOnly"(libs.findLibrary("junit5.jupiter.engine").get())
+                "testImplementation"(libs.findLibrary("junit5.params").get())
+                "testImplementation"(libs.findLibrary("mockk").get())
 
-
-
+                "testImplementation"(libs.findLibrary("turbine").get())
+                "androidTestImplementation"(libs.findLibrary("kotlin.test").get())
             }
         }
     }

@@ -6,7 +6,6 @@ import com.example.baseapp.core.testing.shouldEqual
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-
 private object TestKeyFirst : NavKey
 private object TestKeySecond : NavKey
 

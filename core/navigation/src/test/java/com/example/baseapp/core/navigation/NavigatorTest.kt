@@ -3,8 +3,9 @@ package com.example.baseapp.core.navigation
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import com.example.baseapp.core.testing.shouldEqual
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+
 
 private object TestKeyFirst : NavKey
 private object TestKeySecond : NavKey
@@ -13,7 +14,7 @@ class NavigatorTest {
     private lateinit var navigator: NavigatorImpl
     private lateinit var navigationState: NavigationState
 
-    @Before
+    @BeforeEach
     fun setup() {
         val startKey = TestKeyFirst
         navigationState = NavigationState(startKey, NavBackStack(startKey))

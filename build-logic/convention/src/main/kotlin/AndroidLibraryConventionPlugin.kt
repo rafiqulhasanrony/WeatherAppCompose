@@ -12,6 +12,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             apply(plugin = "com.android.library")
+            apply(plugin = "de.mannodermaus.android-junit5")
 
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
@@ -29,7 +30,13 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             dependencies {
                 "androidTestImplementation"(libs.findLibrary("kotlin.test").get())
                 "testImplementation"(libs.findLibrary("kotlin.test").get())
-                "testImplementation"(libs.findLibrary("junit").get())
+                //"testImplementation"(libs.findLibrary("junit").get())
+                "testImplementation"(libs.findLibrary("junit5").get())
+                "testRuntimeOnly"(libs.findLibrary("junit5JupiterEngine").get())
+                "testImplementation"(libs.findLibrary("junit5Params").get())
+
+
+
             }
         }
     }

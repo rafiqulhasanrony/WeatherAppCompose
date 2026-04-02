@@ -24,12 +24,12 @@ import org.junit.jupiter.params.provider.ValueSource
 import kotlin.test.assertEquals
 
 class SettingsRepositoryTest {
-    val mockSettingsDataSource: SettingsPreferenceDataSource = mockk()
-    private lateinit var settingsRepository: SettingsRepository
+    private val mockSettingsDataSource: SettingsPreferenceDataSource = mockk()
+    private lateinit var sutSettingsRepository: SettingsRepository
 
     @BeforeEach
     fun setup() {
-        settingsRepository = SettingsRepositoryImpl(mockSettingsDataSource)
+        sutSettingsRepository = SettingsRepositoryImpl(mockSettingsDataSource)
     }
 
     @ParameterizedTest
@@ -39,8 +39,8 @@ class SettingsRepositoryTest {
         every { mockSettingsDataSource.isDynamicThemeEnabled() } returns flowOf(isEnabled)
 
         // act and verify
-        settingsRepository.isDynamicThemeEnabled().test {
-            assertEquals(awaitItem(), isEnabled)
+        sutSettingsRepository.isDynamicThemeEnabled().test {
+            assertEquals( isEnabled,awaitItem())
             awaitComplete()
         }
     }
@@ -52,8 +52,8 @@ class SettingsRepositoryTest {
         every { mockSettingsDataSource.getSelectedTheme() } returns flowOf(themeType)
 
         // act and verify
-        settingsRepository.getSelectedTheme().test {
-            assertEquals(awaitItem(), themeType)
+        sutSettingsRepository.getSelectedTheme().test {
+            assertEquals( themeType,awaitItem())
             awaitComplete()
         }
     }
@@ -65,8 +65,8 @@ class SettingsRepositoryTest {
         every { mockSettingsDataSource.getSelectedMeasurementUnit() } returns flowOf(unitOfMeasurement)
 
         // act and verify
-        settingsRepository.getSelectedMeasurementUnit().test {
-            assertEquals(awaitItem(), unitOfMeasurement)
+        sutSettingsRepository.getSelectedMeasurementUnit().test {
+            assertEquals( unitOfMeasurement,awaitItem())
             awaitComplete()
         }
     }
@@ -79,7 +79,7 @@ class SettingsRepositoryTest {
         coEvery { mockSettingsDataSource.saveDynamicTheme(any()) } just runs
 
         // act
-        settingsRepository.updateDynamicTheme(isEnabled)
+        sutSettingsRepository.updateDynamicTheme(isEnabled)
 
         // verify
         coVerify(exactly = 1) { mockSettingsDataSource.saveDynamicTheme(capture(slot)) }
@@ -95,7 +95,7 @@ class SettingsRepositoryTest {
         coEvery { mockSettingsDataSource.saveTheme(any()) } just runs
 
         // act
-        settingsRepository.saveThemeType(themeType)
+        sutSettingsRepository.saveThemeType(themeType)
 
         // verify
         coVerify(exactly = 1) { mockSettingsDataSource.saveTheme(capture(slot)) }
@@ -111,7 +111,7 @@ class SettingsRepositoryTest {
         coEvery { mockSettingsDataSource.saveMeasurementUnit(any()) } just runs
 
         // Act
-        settingsRepository.saveMeasurementUnitType(unitOfMeasurement)
+        sutSettingsRepository.saveMeasurementUnitType(unitOfMeasurement)
 
         // verify
         coVerify(exactly = 1) { mockSettingsDataSource.saveMeasurementUnit(capture(slot)) }

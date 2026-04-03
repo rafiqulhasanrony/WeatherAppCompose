@@ -29,7 +29,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             configureSpotlessForAndroid()
             dependencies {
                 if (path != ":core:testing") {
-                    "implementation"(project(":core:testing"))
+                    "testImplementation"(project(":core:testing"))
                 }
                 "testImplementation"(libs.findLibrary("kotlin.test").get())
                 // "testImplementation"(libs.findLibrary("junit").get())

@@ -40,7 +40,7 @@ class SettingsRepositoryTest {
 
         // act and verify
         sutSettingsRepository.isDynamicThemeEnabled().test {
-            assertEquals( isEnabled,awaitItem())
+            assertEquals(isEnabled, awaitItem())
             awaitComplete()
         }
     }
@@ -53,7 +53,7 @@ class SettingsRepositoryTest {
 
         // act and verify
         sutSettingsRepository.getSelectedTheme().test {
-            assertEquals( themeType,awaitItem())
+            assertEquals(themeType, awaitItem())
             awaitComplete()
         }
     }
@@ -66,7 +66,7 @@ class SettingsRepositoryTest {
 
         // act and verify
         sutSettingsRepository.getSelectedMeasurementUnit().test {
-            assertEquals( unitOfMeasurement,awaitItem())
+            assertEquals(unitOfMeasurement, awaitItem())
             awaitComplete()
         }
     }

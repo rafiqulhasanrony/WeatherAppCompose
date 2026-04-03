@@ -29,7 +29,6 @@ class SettingsPreferenceDataSourceTest {
     private val mockPreferenceDataStoreAPI = mockk<PreferenceDataStoreAPI>()
     private lateinit var sutSettingsDataSource: SettingsPreferenceDataSource
 
-
     @BeforeEach
     fun setup() {
         sutSettingsDataSource = SettingsPreferenceDataSourceImpl(mockPreferenceDataStoreAPI)
@@ -38,31 +37,29 @@ class SettingsPreferenceDataSourceTest {
     @ParameterizedTest
     @ValueSource(booleans = [true, false])
     fun `GIVEN dynamic theme state THEN emit correct value`(isEnabled: Boolean) = runTest {
-        //Arrange
+        // Arrange
         every {
             mockPreferenceDataStoreAPI.getPreference(SettingsDataStoreKeys.DYNAMIC_THEME_PREF_KEY, any(Boolean::class))
         } returns flowOf(isEnabled)
 
-
-        //Act and verify
+        // Act and verify
         sutSettingsDataSource.isDynamicThemeEnabled().test {
-            assertEquals( isEnabled,awaitItem())
+            assertEquals(isEnabled, awaitItem())
             awaitComplete()
         }
-
     }
 
     @ParameterizedTest
     @EnumSource(ThemeType::class)
     fun `GIVEM selected theme type THEN emit correct theme type`(selectedTheme: ThemeType) = runTest {
-        //Arrange
+        // Arrange
         every {
             mockPreferenceDataStoreAPI.getPreference(SettingsDataStoreKeys.THEME_PREF_KEY, any(String::class))
         } returns flowOf(selectedTheme.name)
 
-        //Act and verify
+        // Act and verify
         sutSettingsDataSource.getSelectedTheme().test {
-            assertEquals( selectedTheme,awaitItem())
+            assertEquals(selectedTheme, awaitItem())
             awaitComplete()
         }
     }
@@ -70,53 +67,51 @@ class SettingsPreferenceDataSourceTest {
     @ParameterizedTest
     @EnumSource(UnitOfMeasurement::class)
     fun `GIVEN selected measurement type THEN emit correct measurement type`(selectedMeasurement: UnitOfMeasurement) = runTest {
-        //Arrange
+        // Arrange
         every {
             mockPreferenceDataStoreAPI.getPreference(SettingsDataStoreKeys.MEASUREMENT_UNIT_PREF_KEY, any(String::class))
         } returns flowOf(selectedMeasurement.name)
 
-        //Act and verify
+        // Act and verify
         sutSettingsDataSource.getSelectedMeasurementUnit().test {
             assertEquals(selectedMeasurement, awaitItem())
             awaitComplete()
         }
     }
 
-
     @ParameterizedTest
     @ValueSource(booleans = [true, false])
     fun `WHEN save dynamic theme THEN save correct value`(isEnabled: Boolean) = runTest {
-        //Arrange
+        // Arrange
         val key = slot<Key<Boolean>>()
         val value = slot<Boolean>()
         coEvery {
-            mockPreferenceDataStoreAPI.putPreference(any<Key<Boolean>>(),any<Boolean>())
+            mockPreferenceDataStoreAPI.putPreference(any<Key<Boolean>>(), any<Boolean>())
         } just runs
 
-        //Act
+        // Act
         sutSettingsDataSource.saveDynamicTheme(isEnabled)
 
-        //Verify
-        coVerify(exactly = 1) { mockPreferenceDataStoreAPI.putPreference(capture(key),capture(value)) }
+        // Verify
+        coVerify(exactly = 1) { mockPreferenceDataStoreAPI.putPreference(capture(key), capture(value)) }
         key.captured shouldEqual SettingsDataStoreKeys.DYNAMIC_THEME_PREF_KEY
         value.captured shouldEqual isEnabled
         confirmVerified(mockPreferenceDataStoreAPI)
-
     }
 
     @ParameterizedTest
     @EnumSource(ThemeType::class)
     fun `WHEN save theme type THEN save correct value`(themeType: ThemeType) = runTest {
-        //Arrange
+        // Arrange
         val key = slot<Key<String>>()
         val value = slot<String>()
-        coEvery { mockPreferenceDataStoreAPI.putPreference(any<Key<String>>(),any<String>()) } returns Unit
+        coEvery { mockPreferenceDataStoreAPI.putPreference(any<Key<String>>(), any<String>()) } returns Unit
 
-        //Act
+        // Act
         sutSettingsDataSource.saveTheme(themeType)
 
-        //Verify
-        coVerify(exactly = 1) { mockPreferenceDataStoreAPI.putPreference(capture(key),capture(value)) }
+        // Verify
+        coVerify(exactly = 1) { mockPreferenceDataStoreAPI.putPreference(capture(key), capture(value)) }
         key.captured shouldEqual SettingsDataStoreKeys.THEME_PREF_KEY
         value.captured shouldEqual themeType.name
         confirmVerified(mockPreferenceDataStoreAPI)
@@ -138,5 +133,4 @@ class SettingsPreferenceDataSourceTest {
         key.captured shouldEqual SettingsDataStoreKeys.MEASUREMENT_UNIT_PREF_KEY
         value.captured shouldEqual unitOfMeasurement.name
     }
-
 }

@@ -18,7 +18,7 @@ import javax.inject.Singleton
 @Singleton
 class PreferenceDataStoreAPIImpl @Inject constructor(private val dataStore: DataStore<Preferences>) :
     PreferenceDataStoreAPI {
-    override suspend fun <T> getPreference(key: Preferences.Key<T>, defaultValue: T): Flow<T> {
+    override fun <T> getPreference(key: Preferences.Key<T>, defaultValue: T): Flow<T> {
         val result = dataStore.data.catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())

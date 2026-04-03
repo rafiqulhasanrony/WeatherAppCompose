@@ -9,6 +9,5 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.dataStore.preferences)
-
+    api(libs.androidx.dataStore.preferences)
 }

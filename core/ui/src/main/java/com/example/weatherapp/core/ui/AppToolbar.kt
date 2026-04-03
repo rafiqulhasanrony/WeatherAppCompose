@@ -20,18 +20,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.weatherapp.core.designsystem.foundation.textformat.TextData
 import com.example.weatherapp.core.designsystem.theme.AppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppStandardToolbar(
-    title: String,
+    title: TextData,
     onBackClick: (() -> Unit)? = null, // Nullable: if null, don't show back arrow
     actions: @Composable RowScope.() -> Unit = {},
     scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
     CenterAlignedTopAppBar(
-        title = { Text(text = title, style = MaterialTheme.typography.titleMedium) },
+        title = { Text(text = title.resolve(), style = MaterialTheme.typography.titleMedium) },
         navigationIcon = {
             if (onBackClick != null) {
                 IconButton(onClick = onBackClick) {
@@ -55,7 +56,7 @@ fun AppStandardToolbar(
 @Composable
 fun AppStandardToolbarPreview() {
     AppTheme {
-        AppStandardToolbar("Weather Info")
+        AppStandardToolbar(TextData.of("Weather Info"))
     }
 }
 
@@ -65,7 +66,7 @@ fun AppStandardToolbarPreview() {
 fun AppStandardToolbarWithNavigationBackPreview() {
     AppTheme {
         AppStandardToolbar(
-            title = "Weather Info",
+            title = TextData.of("Weather Info"),
             onBackClick = {
             },
         )

@@ -28,9 +28,8 @@ dependencies {
     compileOnly(libs.ksp.gradlePlugin)
     implementation(libs.truth)
     compileOnly(libs.spotless.gradlePlugin)
+    implementation(libs.junit5.gradlePlugin)
 
-//    compileOnly(libs.firebase.crashlytics.gradlePlugin)
-//    compileOnly(libs.firebase.performance.gradlePlugin)
 //    compileOnly(libs.room.gradlePlugin)
 //    lintChecks(libs.androidx.lint.gradle)
 }

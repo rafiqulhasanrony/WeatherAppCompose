@@ -140,6 +140,8 @@ Full dependency list: [`libs.versions.toml`](gradle/libs.versions.toml)
 - [x] Settings (theme + units)
 - [x] Build logic + convention plugins
 - [x] Navigation setup
-- [ ] Unit test coverage
-- [ ] UI test coverage
+- [ ] Weather info Unit test coverage()
+- [ ] Weather info UI test coverage
+- [x] Setting Unit test coverage()
+- [ ] Setting UI test coverage
 - [ ] Full KDoc documentation

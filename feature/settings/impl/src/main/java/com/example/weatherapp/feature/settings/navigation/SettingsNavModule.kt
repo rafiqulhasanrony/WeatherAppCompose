@@ -11,7 +11,7 @@ import dagger.multibindings.IntoSet
 
 @Module
 @InstallIn(SingletonComponent::class)
-object SettingsModule {
+object SettingsNavModule {
 
     @Provides
     @IntoSet

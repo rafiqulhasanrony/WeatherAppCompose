@@ -1,5 +1,6 @@
 package com.example.weatherapp.feature.settings.presentation
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -15,12 +16,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.weatherApp.feature.settings.publicApi.R.string
 import com.example.weatherApp.feature.settings.publicApi.model.ThemeType
 import com.example.weatherApp.feature.settings.publicApi.model.UnitOfMeasurement
+import com.example.weatherapp.core.designsystem.component.AppBackground
 import com.example.weatherapp.core.designsystem.component.AppList
 import com.example.weatherapp.core.designsystem.component.AppSegmentedButton
 import com.example.weatherapp.core.designsystem.component.ListTitleProperties
@@ -183,36 +185,38 @@ private fun SettingSelectedItem(listTitleProperties: ListTitleProperties) {
     AppList.TitleWithTag(listTitleProperties = listTitleProperties)
 }
 
-@Preview(showBackground = true)
+@PreviewLightDark
 @Composable
 private fun SettingsContentScreenPreview() {
-    AppTheme {
-        SettingsContentScreenView(
-            isDynamicThemeEnabled = true,
-            themeConfigUiModel = ThemeConfigUiModel(
-                selectedTheme = ListTitleProperties(
-                    title = TextData.of("Theme"),
-                    subtitle = TextData.of("System"),
+    AppTheme(isDarkTheme = isSystemInDarkTheme()) {
+        AppBackground {
+            SettingsContentScreenView(
+                isDynamicThemeEnabled = true,
+                themeConfigUiModel = ThemeConfigUiModel(
+                    selectedTheme = ListTitleProperties(
+                        title = TextData.of("Theme"),
+                        subtitle = TextData.of("System"),
+                    ),
+                    segmentedItems = listOf(
+                        SegmentedItem(TextData.of("Dark"), false, ThemeType.Dark),
+                        SegmentedItem(TextData.of("Light"), false, ThemeType.Light),
+                        SegmentedItem(TextData.of("System"), true, ThemeType.System),
+                    ),
                 ),
-                segmentedItems = listOf(
-                    SegmentedItem(TextData.of("Dark"), false, ThemeType.Dark),
-                    SegmentedItem(TextData.of("Light"), false, ThemeType.Light),
-                    SegmentedItem(TextData.of("System"), true, ThemeType.System),
+                unitOfMeasurementConfigUiModel = UnitOfMeasurementConfigUiModel(
+                    selectedMeasurementUnit = ListTitleProperties(
+                        title = TextData.of("Unit of Measurement"),
+                        subtitle = TextData.of("Metric"),
+                    ),
+                    segmentedItems = listOf(
+                        SegmentedItem(TextData.of("Metric"), true, UnitOfMeasurement.Metric),
+                        SegmentedItem(TextData.of("Imperial"), false, UnitOfMeasurement.Imperial),
+                    ),
                 ),
-            ),
-            unitOfMeasurementConfigUiModel = UnitOfMeasurementConfigUiModel(
-                selectedMeasurementUnit = ListTitleProperties(
-                    title = TextData.of("Unit of Measurement"),
-                    subtitle = TextData.of("Metric"),
-                ),
-                segmentedItems = listOf(
-                    SegmentedItem(TextData.of("Metric"), true, UnitOfMeasurement.Metric),
-                    SegmentedItem(TextData.of("Imperial"), false, UnitOfMeasurement.Imperial),
-                ),
-            ),
-            onDynamicThemeChange = {},
-            onThemeSelectionChange = {},
-            onUnitMeasurementChange = {},
-        )
+                onDynamicThemeChange = {},
+                onThemeSelectionChange = {},
+                onUnitMeasurementChange = {},
+            )
+        }
     }
 }

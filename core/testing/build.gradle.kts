@@ -13,6 +13,6 @@ dependencies {
     implementation(libs.hilt.android.testing)
     implementation(libs.assertj.core)
     implementation(libs.kotlin.test)
-    implementation(libs.junit5)
+    compileOnly(libs.junit5)
     implementation(kotlin("test"))
 }

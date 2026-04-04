@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.weatherapp.core.designsystem.foundation.AppText
 import com.example.weatherapp.core.designsystem.foundation.textformat.TextData
+import com.example.weatherapp.core.designsystem.utils.uiTestTag
 import kotlin.collections.forEachIndexed
 
 @Immutable
@@ -29,6 +30,7 @@ fun <T> AppSegmentedButton(
     ) {
         items.forEachIndexed { index, item ->
             SegmentedButton(
+                modifier = Modifier.uiTestTag(SEGMENTED_BUTTON_TEST_TAG),
                 shape = SegmentedButtonDefaults.itemShape(
                     index = index,
                     count = items.size,
@@ -59,3 +61,6 @@ fun AppSegmentedButtonPreview() {
         onSelectionChange = { _, _ -> },
     )
 }
+
+const val SEGMENTED_BUTTON_TEST_TAG = "segmentedButton"
+

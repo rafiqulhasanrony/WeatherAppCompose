@@ -4,9 +4,18 @@ plugins {
 }
 
 android {
-    android {
-        namespace = "com.example.weatherapp.core.designsystem"
-        testOptions.unitTests.isIncludeAndroidResources = true
+    namespace = "com.example.weatherapp.core.designsystem"
+    //testOptions.unitTests.isIncludeAndroidResources = true
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    buildTypes {
+        debug {
+        }
+        release {
+        }
     }
 }
 

@@ -14,6 +14,7 @@ class AndroidFeatureImplConventionPlugin : Plugin<Project> {
 
             extensions.configure<LibraryExtension> {
                 testOptions.animationsDisabled = true
+                defaultConfig.testInstrumentationRunner = "com.example.baseapp.core.testing.HiltTestRunner"
             }
 
             dependencies {
@@ -24,10 +25,6 @@ class AndroidFeatureImplConventionPlugin : Plugin<Project> {
                 "implementation"(libs.findLibrary("androidx.lifecycle.viewModelCompose").get())
                 "implementation"(libs.findLibrary("androidx.hilt.lifecycle.viewModelCompose").get())
                 "implementation"(libs.findLibrary("androidx.navigation3.runtime").get())
-
-                "androidTestImplementation"(
-                    libs.findLibrary("androidx.lifecycle.runtimeTesting").get(),
-                )
             }
         }
     }

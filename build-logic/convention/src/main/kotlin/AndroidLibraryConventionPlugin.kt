@@ -18,7 +18,6 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 configureKotlinAndroid(this)
                 testOptions.targetSdk = 35
                 lint.targetSdk = 35
-                defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
                 testOptions.animationsDisabled = true
                 // The resource prefix is derived from the module name,
                 // so resources inside ":core:module1" must be prefixed with "core_module1_"
@@ -39,7 +38,6 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 "testImplementation"(libs.findLibrary("mockk").get())
 
                 "testImplementation"(libs.findLibrary("turbine").get())
-                "androidTestImplementation"(libs.findLibrary("kotlin.test").get())
             }
         }
     }
